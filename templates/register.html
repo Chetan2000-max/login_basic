@@ -1,0 +1,45 @@
+
+{% extends 'lay/app.html' %}
+    {% block content %}
+    <div class="row justify-content-center">
+        <div class="col-sm-6">
+            <form method="POST" action="{% url 'register' %}" class="form-group">
+                    {% csrf_token %}
+                <div class="form-group">
+                    <label for="{{form.username.id_for_label}}"> Username </label>
+                    <input type="text" name="{{ form.username.name }}" value="{{ form.username.value }}" class="form-control"  required/>
+                    <span class="text-danger"> {{form.username.errors}} </span>
+                </div>
+    
+                <!-- <div class="form-group">
+                    <label for="{{form.email.id_for_label}}"> email </label>
+                    <input type="email" name="{{ form.email.name }}" value="{{ form.email.value }}" class="form-control" required />
+                    <span class="text-danger"> {{form.email.errors }} </span>
+                </div> -->
+
+                <div class="form-group">
+                    <label for="{{form.password.id_for_label}}"> Password </label>
+                    <input type="password" name="{{ form.password.name}}" value="{{ form.password.value }}" class="form-control"
+                        required />
+                    <span class="text-danger"> {{form.password.errors}} </span>
+                </div>
+                
+                <div class="form-group">
+                    <label for="{{form.confirm_password.id_for_label}}"> Confirm_password </label>
+                    <input type="confirm_password" name="{{ form.confirm_password}}" value="{{ form.confirm_password.value }}" class="form-control"
+                        required />
+                    <span class="text-danger"> {{form.c1_password.errors}} </span>
+                </div>
+
+                 <button class="btn btn-primary"> submit </button>
+    
+        </div>
+    
+        
+       
+    
+        </form>
+    </div>
+    </div>
+    {% endblock %}
+ 
